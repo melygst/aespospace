@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESPO</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game-container">
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+    <!-- HUD -->
+    <div id="score-hud" class="hidden">
+        <div>
+            <div>SCORE: <span id="scoreVal">0</span></div>
+            <div class="coin-text">COINS: <span id="coinVal">0</span></div>
+        </div>
+        <button class="btn pause-btn" onclick="pauseGame()">II</button>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="menu-screen" class="ui-layer">
+        <h1>AESPO</h1>
+        <p>High Score: <span id="highScoreVal">0</span></p>
+
+        <p class="label">CHARACTER</p>
+        <div class="char-select">
+            <button class="arrow-btn" onclick="changeCharacter(-1)">&#9664;</button>
+            <img id="charPreview" class="char-preview" alt="Character Preview">
+            <button class="arrow-btn" onclick="changeCharacter(1)">&#9654;</button>
+        </div>
+
+        <p class="label">MUSIC</p>
+        <div class="char-select">
+            <button class="arrow-btn" onclick="changeMusic(-1)">&#9664;</button>
+            <div id="musicLabel" class="music-label">Loading...</div>
+            <button class="arrow-btn" onclick="changeMusic(1)">&#9654;</button>
+        </div>
+
+        <button class="btn" onclick="startGame()">START</button>
+    </div>
+
+    <!-- Pause -->
+    <div id="pause-screen" class="ui-layer hidden">
+        <h1>PAUSED</h1>
+        <button class="btn" onclick="resumeGame()">RESUME</button>
+        <button class="btn" onclick="resetGame()">RESTART</button>
+        <button class="btn" onclick="exitToMenu()">QUIT</button>
+    </div>
+
+    <!-- Game Over -->
+    <div id="game-over-screen" class="ui-layer hidden">
+        <h1>GAME OVER</h1>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <p>High Score: <span id="gameOverHighScoreVal">0</span></p>
+        <p id="newHighScoreMsg" class="hidden new-high">New High Score!</p>
+        <button class="btn" onclick="resetGame()">RETRY</button>
+        <button class="btn" onclick="exitToMenu()">EXIT</button>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
